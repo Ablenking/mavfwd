@@ -604,7 +604,7 @@ static void process_mavlink(uint8_t *buffer, int count, void *arg) {
 					if (sendto(out_sock, mavbuf, mavbuff_offset, 0, (struct sockaddr *)&sin_out,
 							sizeof(sin_out)) == -1) {
 						perror("sendto()");
-						event_base_loopbreak(arg);
+						// event_base_loopbreak(arg);
 					}
 
 					if (verbose)
@@ -656,7 +656,7 @@ static void serial_read_cb(struct bufferevent *bev, void *arg) {
 			if (sendto(out_sock, data, packet_len, 0, (struct sockaddr *)&sin_out,
 					sizeof(sin_out)) == -1) {
 				perror("sendto()");
-				event_base_loopbreak(base);
+				// event_base_loopbreak(base);
 			}
 		}
 
